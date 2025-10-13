@@ -1,0 +1,27 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Izinkan akses ke file index.php
+    RewriteRule ^index\.php$ - [L]
+
+    # Izinkan akses ke direktori dan file tertentu (opsional)
+    # Contoh: izinkan akses ke file CSS, JS, dan gambar
+    RewriteCond %{REQUEST_URI} \.(css|js|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)$ [NC]
+    RewriteRule ^ - [L]
+
+    # Blokir akses langsung ke semua file PHP selain index.php
+    RewriteCond %{REQUEST_URI} \.php$ [NC]
+    RewriteCond %{REQUEST_URI} !/index\.php$ [NC]
+    RewriteRule ^ - [F,L]
+
+    # Arahkan semua permintaan lainnya ke index.php
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ index.php [L]
+</IfModule>
+
+# Blokir akses ke file tertentu (opsional tambahan)
+<FilesMatch "\.(htaccess|htpasswd|ini|log|sh|sql|env)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
